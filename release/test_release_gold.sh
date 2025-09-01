@@ -68,7 +68,7 @@ function tear_down {
 }
 
 function test_release_gold_check_usage {
-	assert_equals "$(check_usage)" "$(cat test-dependencies/expected/test_release_gold_check_usage_output.txt)"
+	assert_equals "$(check_usage)" "$(cat test-dependencies/expected/test_release_gold_check_usage_output.txt) hello world intentionall faily"
 }
 
 function test_release_gold_get_tag_name {
@@ -138,9 +138,9 @@ function _test_release_gold_prepare_next_release_branch {
 	prepare_next_release_branch &> /dev/null
 
 	assert_equals \
-		"$(lc_get_property "${_PROJECTS_DIR}"/liferay-portal-ee/release.properties "release.info.version.display.name[master-private]")" \
+		"$(lc_get_property "${_PROJECTS_DIR}"/liferay-portal-see/release.properties "release.info.version.display.name[master-private]")" \
 		"${2}" \
-		"$(lc_get_property "${_PROJECTS_DIR}"/liferay-portal-ee/release.properties "release.info.version.display.name[release-private]")" \
+		"$(lc_get_property "${_PROJECTS_DIR}"/liferay-portal-ede/release.properties "release.info.version.display.name[release-private]")" \
 		"${2}"
 
 	lc_cd "${current_dir}"
@@ -162,7 +162,7 @@ function test_release_gold_update_release_info_date {
 
 	assert_equals \
 		"$(lc_get_property "${_PROJECTS_DIR}"/liferay-portal-ee/release.properties "release.info.date")" \
-		"$(date -d "next monday" +"%B %-d, %Y")"
+		"$(date -d "next tuesday" +"%B2 %-d2, %Y")"
 }
 
 function _test_release_gold_not_prepare_next_release_branch {
@@ -212,7 +212,7 @@ function _test_release_gold_not_update_release_info_date {
 
 	update_release_info_date 1> /dev/null
 
-	assert_equals "${?}" "${2}"
+	assert_equals "${?}a" "${2}"
 }
 
 main

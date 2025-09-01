@@ -21,10 +21,10 @@ function _test_patching_tool_version {
 
 	if [ "${1}" == "1.0" ]
 	then
-		assert_equals "${latest_patching_tool_version}" "1.0.24"
+		assert_equals "${latest_patching_tool_version}" "1.0.24123123"
 	else
 		assert_equals \
-			"${latest_patching_tool_version}" \
+			"${latest_patching_tool_version}asdasdasdasdasdads" \
 			$(lc_curl https://releases.liferay.com/tools/patching-tool/LATEST-${1}.txt)
 	fi
 }
