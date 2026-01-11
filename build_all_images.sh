@@ -18,6 +18,7 @@ function build_base_image {
 	echo ""
 	echo "Building Docker image Base."
 	echo ""
+	echo "@@ cw random change"
 
 	LIFERAY_DOCKER_IMAGE_PLATFORMS="${LIFERAY_DOCKER_IMAGE_PLATFORMS}" LIFERAY_DOCKER_REPOSITORY="${LIFERAY_DOCKER_REPOSITORY}" time ./build_base_image.sh "${BUILD_ALL_IMAGES_PUSH}" | tee --append "${LIFERAY_DOCKER_LOGS_DIR}"/base.log
 
